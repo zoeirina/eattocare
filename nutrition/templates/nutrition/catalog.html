@@ -1,0 +1,216 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karelys Ríos | Nutrición y Bienestar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --brand-aquamarine: #129d91;
+            --brand-aquamarine-dark: #0e7d73;
+        }
+        
+        .text-brand { color: var(--brand-aquamarine) !important; }
+        .bg-brand { background-color: var(--brand-aquamarine) !important; }
+        
+        .btn-brand {
+            background-color: var(--brand-aquamarine);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-weight: 600;
+        }
+        .btn-brand:hover {
+            background-color: var(--brand-aquamarine-dark);
+            color: white;
+        }
+
+        .btn-outline-brand {
+            color: var(--brand-aquamarine);
+            border-color: var(--brand-aquamarine);
+            border-radius: 50px;
+            font-weight: 600;
+            padding: 10px 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-outline-brand:hover, .btn-outline-brand.active {
+            background-color: var(--brand-aquamarine);
+            color: white;
+            border-color: var(--brand-aquamarine);
+        }
+
+        .card {
+            border: none !important;
+            border-radius: 12px !important;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(18, 157, 145, 0.12) !important;
+        }
+
+        /* Hero Banner con filtro aquamarina y foto de fondo */
+        .hero-banner {
+            background: linear-gradient(rgba(18, 157, 145, 0.85), rgba(14, 125, 115, 0.9)), url('{% static "images/1.jpg" %}');
+            background-size: cover;
+            background-position: center 20%;
+            padding: 100px 0;
+        }
+
+        /* Estilos optimizados para el carrusel infinito de logos */
+        .logos-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+            padding: 30px 0;
+            background: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+        .logos-slide {
+            display: inline-block;
+            white-space: nowrap;
+            animation: 25s slide infinite linear;
+        }
+        .logos-slide img {
+            height: 50px;
+            width: auto;
+            margin: 0 45px;
+            object-fit: contain;
+            display: inline-block;
+            vertical-align: middle;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+        .logos-slide img:hover {
+            opacity: 1;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3 sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-brand fs-4" href="{% url 'nutrition:catalog' %}">Karelys Ríos <span class="text-muted fw-light fs-6">Nutricionista</span></a>
+            <div class="ms-auto">
+                <a href="{% url 'nutrition:catalog' %}" class="btn btn-outline-brand btn-sm me-2">Catálogo</a>
+                <a href="{% url 'nutrition:about' %}" class="btn btn-brand btn-sm">Sobre Mí</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Banner Inmersivo con Filtro y Texto Informativo -->
+    <div class="hero-banner text-white text-center position-relative mb-5 shadow-sm">
+        <div class="container position-relative py-4">
+            <span class="badge bg-white text-brand px-3 py-2 rounded-pill mb-3 fw-bold shadow-sm">Salud y Bienestar Sostenible</span>
+            <h1 class="display-4 fw-bold mb-3 text-white">Nutrición basada en ciencia y sin restricciones</h1>
+            <p class="lead text-white-50 mb-4 col-lg-8 mx-auto">Explora mis planes de alimentación personalizados y recetarios diseñados para transformar tus hábitos de forma real.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#catalogo" class="btn btn-light text-brand fw-bold px-4 py-3 shadow-lg rounded-pill">Ver Catálogo</a>
+                <a href="{% url 'nutrition:about' %}" class="btn btn-outline-light px-4 py-3 rounded-pill">Conoce más sobre mí</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrusel Infinito de Logos de Marcas / Aliados -->
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <span class="text-uppercase tracking-wider text-muted small fw-bold">Confían en mi trayectoria</span>
+            <h4 class="text-brand fw-bold">Instituciones y Alianzas</h4>
+        </div>
+        
+        <div class="logos-container">
+            <div class="logos-slide">
+                <img src="{% static 'images/logo1.png' %}" alt="Aliado 1">
+                <img src="{% static 'images/logo2.png' %}" alt="Aliado 2">
+                <img src="{% static 'images/logo3.png' %}" alt="Aliado 3">
+                <img src="{% static 'images/logo4.png' %}" alt="Aliado 4">
+                <img src="{% static 'images/logo1.png' %}" alt="Aliado 1">
+                <img src="{% static 'images/logo2.png' %}" alt="Aliado 2">
+                <img src="{% static 'images/logo3.png' %}" alt="Aliado 3">
+                <img src="{% static 'images/logo4.png' %}" alt="Aliado 4">
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal del Catálogo -->
+    <div id="catalogo" class="container py-5">
+        <h2 class="text-center mb-4 text-brand fw-bold">Planes y Recetarios Disponibles</h2>
+        
+        <!-- Pestañas (Tabs) de Categorías Interactivas -->
+        <div class="d-flex justify-content-center mb-5 gap-2 flex-wrap">
+            <button class="btn btn-outline-brand active" onclick="filtrarProductos('all', this)">Todos</button>
+            {% for cat in categories %}
+                <button class="btn btn-outline-brand" onclick="filtrarProductos('{{ cat.slug }}', this)">{{ cat.name }}</button>
+            {% endfor %}
+        </div>
+
+        <!-- Listado de Productos -->
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="product-list">
+            {% for product in products %}
+                <div class="col product-item" data-category="{{ product.category.slug }}">
+                    <div class="card h-100 shadow-sm">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 260px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body d-flex flex-column p-4">
+                            <h5 class="card-title fw-bold text-dark">{{ product.title }}</h5>
+                            <p class="card-text text-muted small">{{ product.description }}</p>
+                            <div class="mt-auto">
+                                <span class="fs-4 fw-bold text-brand d-block mb-3">${{ product.price }}</span>
+                                <a href="https://wa.me/584143207673?text=Hola,%20Karelys,%20deseo%20comprar%20el%20producto:%20{{ product.title|urlencode }}%20por%20un%20valor%20de%20%24{{ product.price }}" 
+                                   target="_blank" 
+                                   class="btn btn-brand w-100 d-flex align-items-center justify-content-center gap-2 shadow-sm py-2">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                     <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.601 2.326zm-5.607 12.235h-.001a6.49 6.49 0 0 1-3.314-.905l-.238-.14-2.288.6 
+                                     .61-2.23-.155-.248a6.537 6.537 0 0 1-1.002-3.495c0-3.615 2.94-6.556 6.558-6.556a6.52 6.52 0 0 1 4.636 1.914 6.525 6.525 0 0 1 1.914 4.638c-.003 3.618-2.944 6.558-6.55 6.558zm3.565-4.887c-.196-.098-1.16-.572-1.339-.637-.179-.065-.31-.098-.44.098-.129.196-.505.637-.619.771-.114.134-.229.15-.425.05-.196-.098-.829-.304-1.581-.975-.584-.52-1.008-1.16-1.127-1.356-.118-.196-.013-.302.086-.4.088-.088.196-.229.294-.344.098-.115.13-.196.196-.326.065-.13.033-.242-.016-.341-.049-.098-.44-1.062-.603-1.455-.159-.382-.323-.33-.443-.336z"/>
+                                   </svg>
+                                   Adquirir por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12 text-center py-5">
+                    <div class="p-5 bg-white rounded-4 shadow-sm">
+                        <h3 class="text-secondary">¡Próximamente disponibles!</h3>
+                        <p class="text-muted">Aún no hay productos cargados en el sistema.</p>
+                        <a href="http://127.0.0.1:8000/admin/" class="btn btn-brand mt-2">Ir al Panel de Administración para subirlos</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Script de Pestañas Dinámicas (Filtro instantáneo sin recargar la página) -->
+    <script>
+        function filtrarProductos(categorySlug, buttonElement) {
+            // 1. Manejar el estado activo de los botones
+            const buttons = document.querySelectorAll('.d-flex.justify-content-center button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            // 2. Mostrar u ocultar las tarjetas de productos al instante
+            const items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                if (categorySlug === 'all' || item.getAttribute('data-category') === categorySlug) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

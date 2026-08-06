@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: eattocare
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn eattocare.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: DEBUG
+        value: False
