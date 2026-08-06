@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-a5+y#9q2y@yjm_c47k0)n+2(mhf@+$oyq^@prhc30+a#_r5nc!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# En tu archivo settings.py:
+ALLOWED_HOSTS = ['eattocare.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
